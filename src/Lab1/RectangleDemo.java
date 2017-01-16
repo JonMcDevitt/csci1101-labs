@@ -10,7 +10,7 @@ public class RectangleDemo {
         Rectangle r1;
         Scanner in = new Scanner(System.in);
 
-        System.out.println("Enter the width and height of the rectangle: ");
+        System.out.print("Enter the width and height of the rectangle: ");
         double w = in.nextInt();
         double h = in.nextInt();
 
