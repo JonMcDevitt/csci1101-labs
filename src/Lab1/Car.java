@@ -46,7 +46,7 @@ public class Car {
 
     public void drive(double d) {
         double requiredGas = consumptionRate*d;
-        if(gasLevel > requiredGas) {
+        if(gasLevel < requiredGas) {
             System.out.println("Not enough gas, cannot travel.");
         } else {
             gasLevel -= requiredGas;
