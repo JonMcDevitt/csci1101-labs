@@ -51,5 +51,7 @@ public class Car {
         } else {
             gasLevel -= requiredGas;
         }
+
+        System.out.println("Gas remaining in tank: " + gasLevel);
     }
 }
