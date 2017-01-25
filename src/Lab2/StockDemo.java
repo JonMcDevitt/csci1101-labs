@@ -20,29 +20,24 @@ public class StockDemo {
             switch(cmd.toLowerCase()) {
                 case "help":
                     help();
-                    cmd = in.nextLine();
                     break;
                 case "create":
                     stocks.add(create(in));
-                    cmd = in.nextLine();
                     break;
                 case "mod":
                     mod(in, stocks);
-                    cmd = in.nextLine();
                     break;
                 case "rem":
                     remove(in, stocks);
-                    cmd = in.nextLine();
                     break;
                 case "list":
                     list(stocks, false);
-                    cmd = in.nextLine();
                     break;
                 default:
                     invalidCommand();
-                    cmd = in.nextLine();
                     break;
             }
+            cmd = in.nextLine();
         }
     }
 
@@ -72,7 +67,6 @@ public class StockDemo {
                         System.out.print("Adding stocks...");
                         s.setNumberOfShares(s.getNumberOfShares() + n);
                         System.out.println("Done.");
-                        cmd = in.nextLine();
                         break;
                     case "rem":
                         System.out.println("How many shares would you like to remove?");
@@ -84,13 +78,12 @@ public class StockDemo {
                             s.setNumberOfShares(s.getNumberOfShares() - r);
                             System.out.println("Done.");
                         }
-                        cmd = in.nextLine();
                         break;
                     default:
                         System.out.println("Invalid command. Please enter either add, rem, or cancel.");
-                        cmd = in.nextLine();
                         break;
                 }
+                cmd = in.nextLine();
             }
         }
     }
@@ -113,7 +106,7 @@ public class StockDemo {
         String sym = in.nextLine();
         NumberFormat n = DecimalFormat.getCurrencyInstance();
         System.out.println("Please enter the value of your stock, in CAD. Please use only numbers.");
-        double val = Double.parseDouble(n.format(Double.parseDouble(in.nextLine())));
+        String val = n.format(Double.parseDouble(in.nextLine()));
         System.out.println("How many shares would you like in this stock?");
         int shares = in.nextInt();
         System.out.print("Creating stock...");

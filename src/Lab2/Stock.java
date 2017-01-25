@@ -1,5 +1,10 @@
 package Lab2;
 
+import com.sun.deploy.util.StringUtils;
+
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 /**
  * Created by Owner on 1/23/2017.
  */
@@ -30,6 +35,11 @@ public class Stock implements Comparable<Stock>{
         this.price = price;
     }
 
+    public double getValue() {
+        return 10;
+    }
+    /*Double.parseDouble(this.price.replace("$", "")) * this.numberOfShares*/
+
     public int getNumberOfShares() {
         return numberOfShares;
     }
@@ -39,13 +49,13 @@ public class Stock implements Comparable<Stock>{
     }
 
     public String toString() {
-        return "Symbol: " + symbol + "\nPrice: " + price + "\nNumber of Shares: " + numberOfShares;
+        return "Symbol: " + symbol + "\nPrice: " + price + "\nNumber of Shares: " + numberOfShares + "\nTotal Value: $" + getValue();
     }
 
     @Override
     public int compareTo(Stock s) {
-        double thisStockValue = this.price * this.numberOfShares;
-        double thatStockValue = s.getPrice() * s.getNumberOfShares();
+        double thisStockValue = getValue();
+        double thatStockValue = s.getValue();
 
         if(thisStockValue > thatStockValue) {
             return 1;
